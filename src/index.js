@@ -16,9 +16,6 @@ app.use(express.json())
 app.use(cors())
 app.use(rotas)
 
-mongoose.connect(process.env.MONGO_URI, {
-    useUnifiedTopology: true,
-    useNewUrlParser: true
-})
+mongoose.connect(process.env.MONGO_URI)
 
 app.listen(3000 || process.env.PORT)
