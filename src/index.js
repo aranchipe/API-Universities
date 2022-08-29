@@ -16,7 +16,7 @@ app.use(express.json())
 app.use(cors())
 app.use(rotas)
 
-mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@apicluster.99sryeh.mongodb.net/?retryWrites=true&w=majority`)
+mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         app.listen(3000 || process.env.PORT)
     })

@@ -29,6 +29,16 @@ const criarCollection = async (req, res) => {
     return res.status(200).json(universidades)
 }
 
+const listarUniv = async (req, res) => {
+    try {
+        const universities = await University.find()
+        return res.status(200).json(universities)
+    } catch (error) {
+        return res.status(500).json({ "message": "error" })
+
+    }
+}
+
 const cadastrarUniv = async (req, res) => {
     const {
         domains,
@@ -53,15 +63,6 @@ const cadastrarUniv = async (req, res) => {
     }
 }
 
-const listarUniv = async (req, res) => {
-    try {
-        const universities = await University.find()
-        return res.status(200).json(universities)
-    } catch (error) {
-        return res.status(500).json({ "message": "error" })
-
-    }
-}
 
 module.exports = {
     cadastrarUniv,
